@@ -8,7 +8,8 @@ defmodule Cards do
 
   ## Examples
 
-      iex> Cards.create_deck()
+      iex> Cards.create_deck
+
   """
   def create_deck do
     values = ["Ace", "Two", "Three", "Four", "Five"]
@@ -33,7 +34,9 @@ defmodule Cards do
 
   ## Examples
 
+      iex> deck = Cards.create_deck
       iex> Cards.shuffle(deck)
+
   """
   def shuffle(deck) do
     Enum.shuffle(deck)
@@ -44,7 +47,10 @@ defmodule Cards do
 
   ## Examples
 
-      iex> Cards.contains?(deck, card)
+      iex> deck = Cards.create_deck
+      iex> Cards.contains?(deck, "Ace of Spades")
+      true
+
   """
   def contains?(deck, card) do
     Enum.member?(deck, card)
@@ -55,7 +61,10 @@ defmodule Cards do
 
   ## Examples
 
-      iex> Cards.deal(deck, hand_count)
+      iex> deck = Cards.create_deck
+      iex> Cards.deal(deck, 1)
+      ["Ace of Spades"]
+
   """
   def deal(deck, hand_count) do
     {hand, _} = Enum.split(deck, hand_count)
@@ -68,7 +77,7 @@ defmodule Cards do
 
   ## Examples
 
-      iex> Cards.create_hand(hand_count)
+      iex> Cards.create_hand(2)
   """
   def create_hand(hand_count) do
     create_deck()
