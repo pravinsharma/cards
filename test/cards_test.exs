@@ -6,9 +6,9 @@ defmodule CardsTest do
     assert length(Cards.create_deck()) == 20
   end
 
-  test "shuffles a deck of cards" do
+  test "shuffles a deck of cards randomizes it" do
     deck = Cards.create_deck
-    assert Cards.shuffle(deck) != deck
+    refute Cards.shuffle(deck) == deck
   end
 
   test "deal a deck of 5 cards" do
